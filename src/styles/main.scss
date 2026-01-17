@@ -1,0 +1,40 @@
+@use 'variables';
+@use 'mixins';
+@use 'layout';
+@use 'forms';
+@use 'lists';
+@use 'badges';
+@use 'content';
+@use 'sass:map';
+
+/* Global Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--family-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-03);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+   Auto-generated Utility Classes 
+   Loops through the $typography-styles map to create classes like .text-title-hero
+*/
+@each $variant, $style in variables.$typography-styles {
+  .text-#{$variant} {
+    @include mixins.typography($variant);
+  }
+}

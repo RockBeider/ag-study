@@ -1,0 +1,159 @@
+:root {
+  /* Font Families */
+  --family-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --family-mono: "Fira Code", monospace;
+
+  /* Font Sizes (Scale) */
+  --size-01: 0.75rem;  /* 12px */
+  --size-02: 0.875rem; /* 14px */
+  --size-03: 1rem;     /* 16px */
+  --size-04: 1.125rem; /* 18px */
+  --size-05: 1.5rem;   /* 24px */
+  --size-06: 2rem;     /* 32px */
+  --size-07: 3rem;     /* 48px */
+  --size-hero: 4.5rem; /* 72px */
+
+  /* Line Heights */
+  --line-height-00: 1.1;
+  --line-height-01: 1.2;
+  --line-height-02: 1.3;
+  --line-height-03: 1.5;
+  --line-height-04: 1.6;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* =========================================
+     Color System
+     ========================================= */
+  
+  /* Brand (Default / Primary) */
+  --color-brand-100: #F3F4F6;
+  --color-brand-200: #E5E7EB;
+  --color-brand-300: #D1D5DB;
+  --color-brand-400: #9CA3AF; /* Used for tertiary text */
+  --color-brand-500: #6B7280; /* Used for secondary text */
+  --color-brand-600: #4B5563;
+  --color-brand-700: #374151;
+  --color-brand-800: #1F2937;
+  --color-brand-900: #111827; /* Used for primary text */
+
+  /* Neutral (Grayscale) */
+  --color-neutral-000: #FFFFFF;
+  --color-neutral-100: #F9FAFB;
+  --color-neutral-200: #F3F4F6;
+  --color-neutral-300: #E5E7EB;
+  --color-neutral-400: #D1D5DB;
+  --color-neutral-500: #9CA3AF;
+  --color-neutral-600: #6B7280;
+  --color-neutral-700: #4B5563;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+  
+  /* Semantic Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Aliases */
+  --color-text-primary: var(--color-brand-900);
+  --color-text-secondary: var(--color-brand-500);
+  --color-text-tertiary: var(--color-brand-400);
+  --color-background: var(--color-neutral-000);
+  --color-border: var(--color-neutral-200);
+
+  /* =========================================
+     Size & Spacing System
+     ========================================= */
+
+  /* Radius */
+  --radius-sm: 0.125rem;  /* 2px */
+  --radius-md: 0.25rem;   /* 4px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --space-100: 0.25rem;  /* 4px */
+  --space-200: 0.5rem;   /* 8px */
+  --space-300: 0.75rem;  /* 12px */
+  --space-400: 1rem;     /* 16px */
+  --space-500: 1.25rem;  /* 20px */
+  --space-600: 1.5rem;   /* 24px */
+  --space-800: 2rem;     /* 32px */
+  --space-1000: 2.5rem;  /* 40px */
+  --space-1200: 3rem;    /* 48px */
+  --space-1600: 4rem;    /* 64px */
+  --space-2400: 6rem;    /* 96px */
+  --space-3200: 8rem;    /* 128px */
+  --space-4800: 12rem;   /* 192px */
+
+  /* =========================================
+     Effects System
+     ========================================= */
+
+  /* Drop Shadows */
+  --shadow-100: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-200: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-300: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-400: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-500: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-600: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* Inner Shadows */
+  --inner-shadow-100: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --inner-shadow-200: inset 0 4px 8px 0 rgb(0 0 0 / 0.1);
+
+  /* Blurs (Backdrop) */
+  --blur-overlay: blur(4px);
+  --blur-glass: blur(12px) saturate(180%);
+}
+
+/* =========================================
+   SCSS Maps (Sass Variables)
+   ========================================= */
+
+$typography-styles: (
+  'title-hero': (
+    'size': var(--size-hero),
+    'line-height': var(--line-height-00),
+    'weight': var(--weight-bold),
+    'letter-spacing': -0.02em
+  ),
+  'title-page': (
+    'size': var(--size-07),
+    'line-height': var(--line-height-00),
+    'weight': var(--weight-bold),
+    'letter-spacing': -0.01em
+  ),
+  'subtitle': (
+    'size': var(--size-05),
+    'line-height': var(--line-height-01),
+    'weight': var(--weight-semibold)
+  ),
+  'heading': (
+    'size': var(--size-04),
+    'line-height': var(--line-height-02),
+    'weight': var(--weight-bold)
+  ),
+  'body-base': (
+    'size': var(--size-03),
+    'line-height': var(--line-height-03),
+    'weight': var(--weight-regular)
+  ),
+  'body-strong': (
+    'size': var(--size-03),
+    'line-height': var(--line-height-03),
+    'weight': var(--weight-bold)
+  ),
+  'body-small': (
+    'size': var(--size-01),
+    'line-height': var(--line-height-03),
+    'weight': var(--weight-regular)
+  )
+);

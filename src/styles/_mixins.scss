@@ -1,0 +1,62 @@
+@use 'variables';
+@use 'sass:map';
+
+@mixin text-style($size, $line-height, $weight, $family: var(--family-sans)) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+/* 
+   Generic Typography Mixin 
+   Applies styles based on the key from $typography-styles map
+*/
+@mixin typography($variant) {
+  $style: map.get(variables.$typography-styles, $variant);
+
+  @if $style {
+    font-size: map.get($style, 'size');
+    line-height: map.get($style, 'line-height');
+    font-weight: map.get($style, 'weight');
+    
+    // Optional properties
+    @if map.has-key($style, 'letter-spacing') {
+      letter-spacing: map.get($style, 'letter-spacing');
+    }
+    
+    font-family: var(--family-sans); 
+  } @else {
+    @warn "Typography variant '#{$variant}' not found in map.";
+  }
+}
+
+/* 
+   Legacy mixins aliases for backward compatibility if needed, 
+   or can be removed if we fully switch to using the map loop.
+   For now, we redefine them to use the generic mixin.
+*/
+
+@mixin title-hero { @include typography('title-hero'); }
+@mixin title-page { @include typography('title-page'); }
+@mixin subtitle { @include typography('subtitle'); }
+@mixin heading { @include typography('heading'); }
+@mixin body-base { @include typography('body-base'); }
+@mixin body-strong { @include typography('body-strong'); }
+@mixin body-small { @include typography('body-small'); }
+
+
+/* =========================================
+   Effects Mixins
+   ========================================= */
+
+@mixin effect-shadow($level: 200) {
+  box-shadow: var(--shadow-#{$level});
+}
+
+@mixin effect-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
